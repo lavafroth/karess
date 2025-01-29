@@ -11,7 +11,7 @@ SceneEffect {
         service: "org.kde.kglobalaccel"
         path: "/component/kwin"
         method: "invokeShortcut"
-        arguments: ["karousel-grid-scroll-left-column"]
+        arguments: ["karousel-focus-left"]
     }
 
     DBusCall {
@@ -20,15 +20,16 @@ SceneEffect {
         service: "org.kde.kglobalaccel"
         path: "/component/kwin"
         method: "invokeShortcut"
-        arguments: ["karousel-grid-scroll-right-column"]
+        arguments: ["karousel-focus-right"]
     }
 
+    // Switched the direction for natural scrolling
     function swipeLeft() {
-        scrollLeft.call()
+        scrollRight.call()
     }
 
     function swipeRight() {
-        scrollRight.call()
+        scrollLeft.call()
     }
 
     SwipeGestureHandler {

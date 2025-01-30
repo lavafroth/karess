@@ -23,6 +23,24 @@ SceneEffect {
         arguments: ["karousel-focus-right"]
     }
 
+    DBusCall {
+        id: cycleWidths
+
+        service: "org.kde.kglobalaccel"
+        path: "/component/kwin"
+        method: "invokeShortcut"
+        arguments: ["karousel-cycle-preset-widths"]
+    }
+
+    DBusCall {
+        id: cycleWidthsReverse
+
+        service: "org.kde.kglobalaccel"
+        path: "/component/kwin"
+        method: "invokeShortcut"
+        arguments: ["karousel-cycle-preset-widths-reverse"]
+    }
+
     // Switched the direction for natural scrolling
     function swipeLeft() {
         if (effect.configuration.NaturalScrolling) {
@@ -40,6 +58,14 @@ SceneEffect {
         }
     }
 
+    function pinchCycleWidth() {
+        cycleWidths.call()
+    }
+
+    function pinchCycleWidthReverse() {
+        cycleWidthsReverse.call()
+    }
+
     SwipeGestureHandler {
         direction: SwipeGestureHandler.Direction.Left
         fingerCount: 3
@@ -50,5 +76,17 @@ SceneEffect {
         direction: SwipeGestureHandler.Direction.Right
         fingerCount: 3
         onActivated: swipeRight()
+    }
+
+    PinchGestureHandler {
+        direction: PinchGestureHandler.Direction.Contracting
+        fingerCount: 3
+        onActivated: pinchCycleWidthReverse()
+    }
+
+    PinchGestureHandler {
+        direction: PinchGestureHandler.Direction.Expanding
+        fingerCount: 3
+        onActivated: pinchCycleWidth()
     }
 }

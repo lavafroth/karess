@@ -43,10 +43,10 @@ SceneEffect {
 
     property var leftPrevProgress: 0;
     property var rightPrevProgress: 0;
-    property var threshold: 0.1;
+    property var threshold: 0.05;
 
     function left(progress) {
-        rightPrevProgress = 0;
+        clearRight()
         // print("[left]", progress)
         if (progress - leftPrevProgress < threshold) {
             return
@@ -61,7 +61,7 @@ SceneEffect {
     }
 
     function right(progress) {
-        leftPrevProgress = 0;
+        clearLeft()
         // print("[right]", progress)
         if (progress - rightPrevProgress < threshold) {
             return

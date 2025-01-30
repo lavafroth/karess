@@ -8,7 +8,7 @@
             }
         ],
         "Category": "Tools",
-        "Description": "Invoking touchpad scrolling with Karousel",
+        "Description": "Invoke touchpad scrolling with Karousel",
         "EnabledByDefault": true,
         "Id": "karousel_touch",
         "License": "MIT",

@@ -25,11 +25,19 @@ SceneEffect {
 
     // Switched the direction for natural scrolling
     function swipeLeft() {
-        scrollRight.call()
+        if (effect.configuration.NaturalScrolling) {
+            scrollRight.call()
+        } else {
+            scrollLeft.call()
+        }
     }
 
     function swipeRight() {
-        scrollLeft.call()
+        if (effect.configuration.NaturalScrolling) {
+            scrollLeft.call()
+        } else {
+            scrollRight.call()
+        }
     }
 
     SwipeGestureHandler {

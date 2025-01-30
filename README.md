@@ -12,15 +12,15 @@ kpackagetool6 --type KWin/Effect --install ./src
 
 ## Usage
 
-I perfer natural scrolling and there are no configuration options yet.
-The following are the hardcoded gestures:
+We default to natural scrolling (scrolling the view, not the contents)
+but this behavior can be changed in the effect's settings.
 
 - Three finger swipe left to focus on the window to the right
 - Three finger swipe right to focus on the window to the left
 
 Check out the `pinch-cycle-widths` branch for these additional gestures:
-- Pinch with 3 fingers outwards (I guess that's called a zoom) to cycle window widths
-- Pinch with 3 fingers inwards to cycle window widths in reverse
+- Pinch with three fingers outwards (I guess that's called a zoom) to cycle window widths
+- Pinch with three fingers inwards to cycle window widths in reverse
 
 ## Acknowledgements
 

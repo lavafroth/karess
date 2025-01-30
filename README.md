@@ -10,6 +10,12 @@ KWin Effect to enable touchpad gestures with [Karousel](https://github.com/peter
 kpackagetool6 --type KWin/Effect --install ./src
 ```
 
+If the effect is already installed, run
+
+```
+kpackagetool6 --type KWin/Effect --upgrade ./src
+```
+
 ## Usage
 
 We default to natural scrolling (scrolling the view, not the contents)

@@ -8,11 +8,11 @@
             }
         ],
         "Category": "Tools",
-        "Description": "Invoke touchpad scrolling with Karousel",
+        "Description": "Touchpad gestures for Karousel",
         "EnabledByDefault": true,
-        "Id": "karousel_touch",
+        "Id": "karess",
         "License": "MIT",
-        "Name": "Karousel Touch"
+        "Name": "Karess"
     },
     "X-KDE-Ordering": 60,
     "X-Plasma-API": "declarativescript",

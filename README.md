@@ -1,4 +1,4 @@
-# Karousel Touch
+# Karess
 KWin Effect to enable touchpad gestures with [Karousel](https://github.com/peterfajdiga/karousel)
 
 ## Installation

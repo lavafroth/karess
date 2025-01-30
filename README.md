@@ -18,9 +18,9 @@ but this behavior can be changed in the effect's settings.
 - Three finger swipe left to focus on the window to the right
 - Three finger swipe right to focus on the window to the left
 
-Check out the `pinch-cycle-widths` branch for these additional gestures:
-- Pinch with three fingers outwards (I guess that's called a zoom) to cycle window widths
-- Pinch with three fingers inwards to cycle window widths in reverse
+The following pinch / zoom gestures can also be disabled in the settings:
+- Zoom with three fingers to cycle window widths
+- Pinch with three fingers to cycle window widths in reverse
 
 ## Acknowledgements
 

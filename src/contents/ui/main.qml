@@ -41,8 +41,8 @@ SceneEffect {
         arguments: ["karousel-cycle-preset-widths-reverse"]
     }
 
-    // Switched the direction for natural scrolling
     function swipeLeft() {
+        // Switched the direction for natural scrolling
         if (effect.configuration.NaturalScrolling) {
             scrollRight.call()
         } else {
@@ -59,11 +59,15 @@ SceneEffect {
     }
 
     function pinchCycleWidth() {
-        cycleWidths.call()
+        if (effect.configuration.CycleWidths) {
+            cycleWidths.call()
+        }
     }
 
     function pinchCycleWidthReverse() {
-        cycleWidthsReverse.call()
+        if (effect.configuration.CycleWidths) {
+            cycleWidthsReverse.call()
+        }
     }
 
     SwipeGestureHandler {

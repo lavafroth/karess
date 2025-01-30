@@ -26,13 +26,13 @@
        </property>
       </widget>
      </item>
-     <!-- <item> -->
-      <!-- <widget class="QCheckBox" name="kcfg_CloseOrMinimize"> -->
-       <!-- <property name="text"> -->
-        <!-- <string>Minimize window instead of closing when pinch</string> -->
-       <!-- </property> -->
-      <!-- </widget> -->
-     <!-- </item> -->
+     <item>
+      <widget class="QCheckBox" name="kcfg_CycleWidths">
+       <property name="text">
+        <string>Pinch or zoom to cycle window widths</string>
+       </property>
+      </widget>
+     </item>
     </layout>
    </item>
   </layout>

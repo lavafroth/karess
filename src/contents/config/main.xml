@@ -8,5 +8,8 @@
         <entry name="NaturalScrolling" type="Bool">
             <default>true</default>
         </entry>
+        <entry name="CycleWidths" type="Bool">
+            <default>true</default>
+        </entry>
     </group>
 </kcfg>

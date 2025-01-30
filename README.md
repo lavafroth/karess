@@ -30,5 +30,7 @@ The following pinch / zoom gestures can also be disabled in the settings:
 
 ## Acknowledgements
 
-Thank you to @diredocks for the Gesture Evolution KWin Effect and
-@zeroxoneafour for pointing out the scarcely documented DBusCall for QML.
+Thank you
+- @diredocks for the Gesture Evolution KWin Effect
+- @zeroxoneafour and @krake for pointing out the scarcely documented DBusCall for QML
+- @peterfajdiga for making Karousel

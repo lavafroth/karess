@@ -87,15 +87,25 @@ SceneEffect {
         }
     }
 
+    function clearLeft() {
+        leftPrevProgress = 0;
+    }
+
+    function clearRight() {
+        rightPrevProgress = 0;
+    }
+
     SwipeGestureHandler {
         direction: SwipeGestureHandler.Direction.Left
         fingerCount: 3
+        onActivated: clearLeft()
         onProgressChanged: left(progress)
     }
 
     SwipeGestureHandler {
         direction: SwipeGestureHandler.Direction.Right
         fingerCount: 3
+        onActivated: clearRight()
         onProgressChanged: right(progress)
     }
 

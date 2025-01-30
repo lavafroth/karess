@@ -18,10 +18,8 @@ kpackagetool6 --type KWin/Effect --upgrade ./src
 
 ## Usage
 
-We default to natural scrolling (scrolling the view, not the contents)
-but this behavior can be changed in the effect's settings.
-
-Scroll with three fingers left or right to scroll the view.
+Scroll with three fingers left or right to scroll the content (natural scrolling).
+You may reverse the scrolling direction in the settings.
 
 The following pinch / zoom gestures can also be disabled in the settings:
 - Zoom with three fingers to cycle window widths

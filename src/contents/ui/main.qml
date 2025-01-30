@@ -11,7 +11,7 @@ SceneEffect {
         service: "org.kde.kglobalaccel"
         path: "/component/kwin"
         method: "invokeShortcut"
-        arguments: ["karousel-focus-left"]
+        arguments: ["karousel-grid-scroll-left"]
     }
 
     DBusCall {
@@ -20,7 +20,7 @@ SceneEffect {
         service: "org.kde.kglobalaccel"
         path: "/component/kwin"
         method: "invokeShortcut"
-        arguments: ["karousel-focus-right"]
+        arguments: ["karousel-grid-scroll-right"]
     }
 
     DBusCall {
@@ -41,21 +41,38 @@ SceneEffect {
         arguments: ["karousel-cycle-preset-widths-reverse"]
     }
 
-    function swipeLeft() {
-        // Switched the direction for natural scrolling
+    property var leftPrevProgress: 0;
+    property var rightPrevProgress: 0;
+    property var threshold: 0.1;
+
+    function left(progress) {
+        rightPrevProgress = 0;
+        // print("[left]", progress)
+        if (progress - leftPrevProgress < threshold) {
+            return
+        }
+
         if (effect.configuration.NaturalScrolling) {
             scrollRight.call()
         } else {
             scrollLeft.call()
         }
+        leftPrevProgress = progress
     }
 
-    function swipeRight() {
+    function right(progress) {
+        leftPrevProgress = 0;
+        // print("[right]", progress)
+        if (progress - rightPrevProgress < threshold) {
+            return
+        }
+
         if (effect.configuration.NaturalScrolling) {
             scrollLeft.call()
         } else {
             scrollRight.call()
         }
+        rightPrevProgress = progress
     }
 
     function pinchCycleWidth() {
@@ -73,13 +90,13 @@ SceneEffect {
     SwipeGestureHandler {
         direction: SwipeGestureHandler.Direction.Left
         fingerCount: 3
-        onActivated: swipeLeft()
+        onProgressChanged: left(progress)
     }
 
     SwipeGestureHandler {
         direction: SwipeGestureHandler.Direction.Right
         fingerCount: 3
-        onActivated: swipeRight()
+        onProgressChanged: right(progress)
     }
 
     PinchGestureHandler {

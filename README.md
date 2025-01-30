@@ -21,8 +21,7 @@ kpackagetool6 --type KWin/Effect --upgrade ./src
 We default to natural scrolling (scrolling the view, not the contents)
 but this behavior can be changed in the effect's settings.
 
-- Three finger swipe left to focus on the window to the right
-- Three finger swipe right to focus on the window to the left
+Scroll with three fingers left or right to scroll the view.
 
 The following pinch / zoom gestures can also be disabled in the settings:
 - Zoom with three fingers to cycle window widths

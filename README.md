@@ -1,6 +1,9 @@
 # Karess
 KWin Effect to enable touchpad gestures with [Karousel](https://github.com/peterfajdiga/karousel)
 
+> [!NOTE]
+> KDE touchpad gestures are only supported on Wayland.
+
 ## Installation
 
 - Clone this repo

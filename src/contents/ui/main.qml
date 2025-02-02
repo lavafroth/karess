@@ -24,6 +24,25 @@ SceneEffect {
     }
 
     DBusCall {
+        id: focusLeft
+        // dbusInterface: "org.kde.kglobalaccel.Component"
+
+        service: "org.kde.kglobalaccel"
+        path: "/component/kwin"
+        method: "invokeShortcut"
+        arguments: ["karousel-focus-left"]
+    }
+
+    DBusCall {
+        id: focusRight
+
+        service: "org.kde.kglobalaccel"
+        path: "/component/kwin"
+        method: "invokeShortcut"
+        arguments: ["karousel-focus-right"]
+    }
+
+    DBusCall {
         id: cycleWidths
 
         service: "org.kde.kglobalaccel"
@@ -43,7 +62,7 @@ SceneEffect {
 
     property var leftPrevProgress: 0;
     property var rightPrevProgress: 0;
-    property var threshold: 0.05;
+    property var threshold: (70 - effect.configuration.ScrollThreshold) / 100 + 0.05;
 
     function left(progress) {
         clearRight()
@@ -52,10 +71,18 @@ SceneEffect {
             return
         }
 
-        if (effect.configuration.NaturalScrolling) {
-            scrollRight.call()
+        if (effect.configuration.ScrollFocus) {
+            if (effect.configuration.NaturalScrolling) {
+                focusRight.call()
+            } else {
+                focusLeft.call()
+            }
         } else {
-            scrollLeft.call()
+            if (effect.configuration.NaturalScrolling) {
+                scrollRight.call()
+            } else {
+                scrollLeft.call()
+            }
         }
         leftPrevProgress = progress
     }
@@ -67,10 +94,18 @@ SceneEffect {
             return
         }
 
-        if (effect.configuration.NaturalScrolling) {
-            scrollLeft.call()
+        if (effect.configuration.ScrollFocus) {
+            if (effect.configuration.NaturalScrolling) {
+                focusLeft.call()
+            } else {
+                focusRight.call()
+            }
         } else {
-            scrollRight.call()
+            if (effect.configuration.NaturalScrolling) {
+                scrollLeft.call()
+            } else {
+                scrollRight.call()
+            }
         }
         rightPrevProgress = progress
     }

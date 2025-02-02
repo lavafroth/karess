@@ -8,6 +8,12 @@
         <entry name="NaturalScrolling" type="Bool">
             <default>true</default>
         </entry>
+        <entry name="ScrollFocus" type="Bool">
+            <default>false</default>
+        </entry>
+        <entry name="ScrollThreshold" type="Int">
+            <default>70</default>
+        </entry>
         <entry name="CycleWidths" type="Bool">
             <default>true</default>
         </entry>

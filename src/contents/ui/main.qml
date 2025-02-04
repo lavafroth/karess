@@ -4,9 +4,9 @@ import org.kde.kwin
 SceneEffect {
     id: effect
 
+    // Refer to https://invent.kde.org/plasma/kwin/-/blob/Plasma/6.2/src/scripting/dbuscall.h
     DBusCall {
         id: scrollLeft
-        // dbusInterface: "org.kde.kglobalaccel.Component"
 
         service: "org.kde.kglobalaccel"
         path: "/component/kwin"
@@ -25,7 +25,6 @@ SceneEffect {
 
     DBusCall {
         id: focusLeft
-        // dbusInterface: "org.kde.kglobalaccel.Component"
 
         service: "org.kde.kglobalaccel"
         path: "/component/kwin"
@@ -130,6 +129,14 @@ SceneEffect {
         rightPrevProgress = 0;
     }
 
+    // Refer to https://invent.kde.org/plasma/kwin/-/blob/Plasma/6.2/src/scripting/gesturehandler.h
+    // `onProgressChanged` is never mentioned in the examples
+    // but it is present under `Q_SIGNALS` as `void progressChanged()`
+
+    // onActivated is a misnomer. This signal is received after the
+    // gesture is completed, that is, the finger is lifted from the touchpad.
+
+    // It is thus used to clean up the local state.
     SwipeGestureHandler {
         direction: SwipeGestureHandler.Direction.Left
         fingerCount: 3
